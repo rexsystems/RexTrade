@@ -1,0 +1,127 @@
+config-version: 1
+
+settings:
+  enabled: true
+  request-timeout-seconds: 30
+  max-distance: 10
+  tax-percent: 0
+  number-format: short
+  blocked-worlds: []
+  blocked-gamemodes: []
+
+gui:
+  rows: 6
+  title: "<dark_gray>Trade with <white>{partner}"
+  own-slots: [0, 1, 2, 3, 9, 10, 11, 12, 18, 19, 20, 21, 27, 28, 29, 30]
+  partner-slots: [5, 6, 7, 8, 14, 15, 16, 17, 23, 24, 25, 26, 32, 33, 34, 35]
+  own-accept-slot: 45
+  partner-accept-slot: 53
+  currency-slots: [46, 47, 48]
+  partner-currency-slots: [50, 51, 52]
+  divider-slots: [4, 13, 22, 31, 40, 49]
+  filler: GRAY_STAINED_GLASS_PANE
+  accept-material: LIME_DYE
+  waiting-material: RED_DYE
+  accept-name: "<green>Accept"
+  accepted-name: "<green>Accepted"
+  partner-accepted-name: "<green>{partner} accepted"
+  partner-waiting-name: "<gray>Waiting for {partner}"
+  currency-name: "<gold>{currency}"
+  currency-lore:
+    - "<gray>Offer: <white>{amount}"
+    - "<gray>Left click <white>+{increment}"
+    - "<gray>Right click <white>-{increment}"
+    - "<gray>Shift-left click <white>+{large}"
+    - "<gray>Shift-right click clears the offer"
+    - "<gray>/rextrade offer {id} <amount>"
+  partner-currency-name: "<gray>{partner}<dark_gray>: <white>{amount}"
+  preview-title: "<dark_gray>{item}"
+
+currencies:
+  money:
+    type: vault
+    name: "Money"
+    material: GOLD_INGOT
+    increment: 100
+  tokens:
+    type: placeholder
+    name: "Tokens"
+    material: SUNFLOWER
+    increment: 10
+    balance-placeholder: "%tokens_balance%"
+    give-command: "tokens give {player} {amount}"
+    take-command: "tokens take {player} {amount}"
+
+sounds:
+  request:
+    enabled: true
+    sound: BLOCK_NOTE_BLOCK_PLING
+    volume: 1.0
+    pitch: 1.4
+  accept:
+    enabled: true
+    sound: BLOCK_NOTE_BLOCK_BELL
+    volume: 1.0
+    pitch: 1.2
+  deny:
+    enabled: true
+    sound: BLOCK_NOTE_BLOCK_BASS
+    volume: 1.0
+    pitch: 0.8
+  cancel:
+    enabled: true
+    sound: BLOCK_NOTE_BLOCK_BASS
+    volume: 1.0
+    pitch: 0.6
+  complete:
+    enabled: true
+    sound: ENTITY_PLAYER_LEVELUP
+    volume: 0.6
+    pitch: 1.4
+
+messages:
+  prefix: "<gray>[<gold>Trade</gold>]</gray> "
+  help-header: "<prefix><white>RexTrade"
+  help:
+    - "<gray>Shift-right-click a player to send a request."
+    - "<gray>/rextrade accept <dark_gray>- <gray>open the trade"
+    - "<gray>/rextrade deny <dark_gray>- <gray>decline a request"
+    - "<gray>/rextrade cancel <dark_gray>- <gray>return both offers"
+    - "<gray>/rextrade offer <currency> <amount> <dark_gray>- <gray>set your currency offer"
+    - "<gray>/rextrade reload <dark_gray>- <gray>reload the config"
+  no-permission: "<prefix><red>You cannot trade."
+  players-only: "<prefix><red>Only a player can do that."
+  reload: "<prefix><green>RexTrade reloaded. Open trades keep the rules they started with."
+  disabled: "<prefix><red>Trading is disabled."
+  request-sent: "<prefix><gray>Trade request sent to <white>{partner}<gray>. It expires in {seconds}s."
+  request-received: "<prefix><white>{player} <gray>wants to trade. <white>/rextrade accept <gray>or <white>/rextrade deny<gray>. {seconds}s left."
+  request-expired: "<prefix><gray>The trade request expired."
+  request-denied: "<prefix><gray>You declined the trade request."
+  request-denied-sender: "<prefix><white>{partner} <gray>declined the trade request."
+  request-none: "<prefix><gray>You have no trade request."
+  request-busy: "<prefix><gray>You or <white>{partner} <gray>are already in a trade."
+  request-self: "<prefix><gray>You cannot trade with yourself."
+  request-world: "<prefix><gray>You need to be in the same world."
+  request-distance: "<prefix><gray>That player is more than {distance} blocks away."
+  request-blocked-world: "<prefix><gray>Trading is blocked in this world."
+  request-blocked-gamemode: "<prefix><gray>Trading is blocked in this gamemode."
+  request-no-target-permission: "<prefix><white>{partner} <gray>cannot trade."
+  accepted: "<prefix><gray>You accepted. Waiting for <white>{partner}<gray>."
+  session-open: "<prefix><gray>Trading with <white>{partner}<gray>. Put items on your side. Both players must accept."
+  cancelled: "<prefix><gray>The trade was cancelled. Your items were returned."
+  partner-left: "<prefix><white>{partner} <gray>left. Your items were returned."
+  partner-died: "<prefix><white>{partner} <gray>died. Your items were returned."
+  too-far: "<prefix><gray>You moved more than {distance} blocks apart. Items were returned."
+  world-change: "<prefix><gray>A world change cancelled the trade. Items were returned."
+  no-space: "<prefix><red>The trade was not confirmed. <white>{partner} <red>does not have room for the offered items."
+  money-failed: "<prefix><red>The trade was not confirmed. A currency charge failed, so nothing was taken and no items moved."
+  offer-set: "<prefix><gray>{currency} offer set to <white>{amount}<gray>."
+  offer-usage: "<prefix><gray>Use <white>/rextrade offer <currency> <amount><gray>."
+  not-in-trade: "<prefix><gray>You are not in a trade."
+  currency-unknown: "<prefix><gray>Unknown currency <white>{currency}<gray>."
+  vault-missing: "<prefix><red>Vault has no economy, so that currency cannot move."
+  summary:
+    - "<prefix><green>Trade complete with <white>{partner}<green>."
+    - "<gray>You gave: <white>{sent_items} <dark_gray>| <white>{sent_currency}"
+    - "<gray>You got: <white>{received_items} <dark_gray>| <white>{received_currency}"
+    - "<gray>Tax removed: <white>{tax}"

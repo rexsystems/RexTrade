@@ -1,0 +1,23 @@
+name: RexTrade
+version: '${project.version}'
+main: me.rexsystems.rexTrade.RexTrade
+api-version: '1.21'
+folia-supported: true
+authors: [RexSystems]
+description: Player to player item and currency trades
+website: https://rexsystems.me
+softdepend: [PlaceholderAPI, Vault]
+
+commands:
+  rextrade:
+    description: Trade items and currency with another player
+    aliases: [rtrade, trade]
+    usage: /rextrade <help|accept|deny|cancel|offer|reload>
+
+permissions:
+  rextrade.use:
+    description: Send and accept trade requests
+    default: true
+  rextrade.reload:
+    description: Reload RexTrade
+    default: op
