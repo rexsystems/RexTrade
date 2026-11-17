@@ -53,3 +53,7 @@ Aliases: `/rtrade`, `/trade`
 The pages in [docs/](docs/index.md) drop into a Starlight site at `src/content/docs/rextrade/`. Paste `docs/sidebar.mjs` into the site sidebar.
 
 Full docs: [https://rexsystems.me/docs/rextrade](https://rexsystems.me/docs/rextrade)
+
+## License
+
+Licensed under the [GNU Affero General Public License v3.0](LICENSE).
