@@ -36,4 +36,4 @@ Aliases: `/rtrade`, `/trade`
 | `rextrade.use` | true | Send and accept trade requests |
 | `rextrade.reload` | op | Reload the configuration |
 
-Documentation: https://rexsystems.me/docs/rextrade
+Documentation: https://docs.rexsystems.me/rextrade/
